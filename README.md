@@ -75,23 +75,17 @@ To ensure that all dependencies are contained within the project, it's recommend
 
 ### Installing Dependencies
 
-Once the virtual environment is activated, install the required dependencies using the `requirements.txt` file (if available):
+Once the virtual environment is activated, install the required dependencies using the `requirements.txt`:
 
 ```bash
 pip install -r requirements.txt
-```
-
-If there is no `requirements.txt` file, you can manually install the essential packages for the project:
-
-```bash
-pip install fastapi uvicorn sqlalchemy alembic pydantic
 ```
 
 ---
 
 ## 3. Database Migrations
 
-Alembic is used for managing database migrations in this project. After configuring Alembic in `alembic.ini` and `env.py`, you can use the following commands:
+Alembic is used for managing database migrations in this project. you can use the following commands:
 
 1. **Create a new migration**:
    ```bash
@@ -112,8 +106,9 @@ This will ensure that your database schema is up to date with the latest models 
 Once the dependencies are installed and migrations are applied, you can start the FastAPI application using **Uvicorn**, which is the ASGI server used to serve FastAPI applications.
 
 Run the application with:
-
+first change directory to the src folder
 ```bash
+cd src
 uvicorn main:app --reload
 ```
 
