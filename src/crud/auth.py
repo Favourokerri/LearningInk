@@ -23,7 +23,7 @@ def create_organization_in_db(db: Session, organization_data: CreateOrganization
         db.rollback()
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="User with this username alredy exist"
+            detail="User with this username already exist"
         )
     except Exception as e:
         db.rollback()
