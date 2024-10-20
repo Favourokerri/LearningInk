@@ -83,6 +83,14 @@ pip install -r requirements.txt
 
 ---
 
+### creating environmental variables
+create a file .env, its content should contain
+```
+SECRET_KEY = "09d25e094faa6hgstertwkam86647hdbdgsf6f0f4caa6cf63b88e8d3e7"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+```
+
 ## 3. Database Migrations
 
 Alembic is used for managing database migrations in this project. you can use the following commands:
