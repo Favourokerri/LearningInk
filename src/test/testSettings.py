@@ -28,7 +28,7 @@ def overide_get_db():
     finally:
         db.close()
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def setup_database():
     #create all tables on test run
     Base.metadata.create_all(bind=engine)

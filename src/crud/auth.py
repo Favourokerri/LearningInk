@@ -9,6 +9,17 @@ from core.config import settings
 from schema.organization import CreateOrganization
 from model.organization import OrganizationModel
 
+
+def verify_password(password):
+    if len(password) < 8:
+         raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Password must be greater than 7"
+        )
+    return password
+
+
+
 def create_organization_in_db(db: Session, organization_data: CreateOrganization):
     try:
         organization_data.password = bcrypt_context.hash(organization_data.password)
@@ -43,7 +54,7 @@ def authenticate_user(username: str, password: str, db):
     if not bcrypt_context.verify(password, user.password):
          raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Username and or password incorrect"
+            detail="Username or password incorrect"
         )
 
     return user
